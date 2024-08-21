@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="GaussianOcc: Fully Self-supervised and Efficient 3D Occupancy Estimation with Gaussian Splatting">
+  <meta name="keywords" content="GaussianOcc, occupancy, self-supervise">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GaussianOcc: Fully Self-supervised and Efficient 3D Occupancy Estimation with Gaussian Splatting</title>
+ 
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">GaussianOcc: Fully Self-supervised and Efficient 3D Occupancy Estimation with Gaussian Splatting</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://ganwanshui.github.io/">Wanshui Gan</a><sup>1,2,*</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/Fang2896">Fang Liu</a><sup>1,*</sup>,</span>
+            <span class="author-block">
+              <a href="https://toughstonex.github.io/">Hongbin Xu</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=4cesyTkAAAAJ">Ningkai Mo</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://naotoyokoya.com/">Naoto Yokoya</a><sup>1,2,</sup><sup>&dagger;</sup>
+            </span>
+          </div>
+
+          <div align="center" style="margin-bottom:20px;">
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>The University of Tokyo &nbsp;&nbsp;</span>
+            <span class="author-block"><sup>2</sup>RIKEN &nbsp;&nbsp;</span>
+            <span class="author-block"><sup>3</sup>South China University of Technology &nbsp;&nbsp;</span>
+            <br>
+            <span class="author-block"><sup>4</sup>Shenzhen Institute of Advanced Technology, Chinese Academy of Science &nbsp;&nbsp;</span>
+            <br>
+            <span class="author-block"><sup>*</sup>Equal contribution &nbsp;&nbsp; <sup>&dagger;</sup>Corresponding author &nbsp;&nbsp</span>
+            <br>
+          </div>
+          </div>
+
+          <!-- <h1 style="font-size:24px;font-weight:bold">arXiv</h1>
+          <div class="column has-text-centered"> -->
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://github.com/GANWANSHUI/GaussianOcc.git"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/GANWANSHUI/GaussianOcc.git"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/GANWANSHUI/GaussianOcc.git"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 align="center"  class="title is-3">Demo</h2>
+
+        <h3 align="center" class="title is-4">3D Occupancy Prediction and Render Depth, Left-> nuScenes, Right -> DDAD</h3>
+        <div class="content has-text-justified">
+        </div>
+        <div class="content has-text-centered">
+          <video poster='static/images/nuscenes_demo.jpg'
+                 id="replay-video"
+                 controls
+                 muted
+                 width="46%">
+            <source src="static/videos/nuscenes_demo.mp4"
+                    type="video/mp4">
+          </video>
+          <video poster='static/images/ddad_demo.jpg' id="replay-video" controls muted width="46%">
+            <source src="static/videos/ddad_demo.mp4" type="video/mp4">
+          </video>
+
+          <div align="center" style="margin-top:20px;" style="margin-bottom:80px;">
+            <img style='height: auto; width:85%; object-fit: contain' src="static/images/bar.png" alt="overview_image">
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We introduce GaussianOcc, a systematic method that investigates the two usages of Gaussian splatting for fully self-supervised and efficient 3D occupancy estimation in surround views.
+            First, traditional methods for self-supervised 3D occupancy estimation still require ground truth 6D poses from sensors during training. 
+            To address this limitation, we propose Gaussian Splatting for Projection (GSP) module to provide accurate scale information for fully self-supervised training from adjacent view projection. 
+            Additionally, existing methods rely on volume rendering for final 3D voxel representation learning using 2D signals (depth maps, semantic maps),
+            which is both time-consuming and less effective. We propose Gaussian Splatting from Voxel space (GSV) to leverage the fast rendering properties of Gaussian splatting.
+            As a result, the proposed GaussianOcc method enables fully self-supervised (no ground truth pose) 3D occupancy estimation in competitive performance with low computational cost (2.7 times faster in training and 5 times faster in rendering). 
+  
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div align="center" style="margin-top:20px;" style="margin-bottom:80px;">
+  <img style='height: auto; width:30%; object-fit: contain' src="static/images/gaussianocc.png" alt="overview_image">
+</div>
+
+
+<section class="section">
+  <div class="container">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            <b>The overview of the proposed GaussianOcc.</b> With a sequence of surround images, we employ a U-Net architecture to predict Gaussian attributes in the 2D image grid space for cross-view Gaussian splatting.
+            This approach provides scale information in the joint training with the 6D pose network (Stage 1).
+            For 3D occupancy estimation, we lift the 2D features to a 3D voxel space and propose voxel grid Gaussian splatting for fast rendering (Stage 2).
+            We omit the line to from the 6D pose net to the loss in stage 1 for clarity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div align="center" style="margin-top:20px;" style="margin-bottom:80px;">
+<img style='height: auto; width:65%; object-fit: contain' src="static/images/pipeline.png" alt="overview_image">
+</div>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 align="center"  class="title is-3">Main Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            <!-- We conduct xxxxxxxxxxxxxxxxxxxxxxxxx. -->
+          </p>
+        </div>
+
+
+        <h3 align="center" class="title is-4">3D Occupancy Estimation</h3>
+
+        <div class="content has-text-justified">
+            We experimented in compared with the mIoU and IoU metrics and showed the render speed comparison.
+        </div>
+
+        <img style='height: auto; width:100%; object-fit: contain' src="static/images/occ_table.jpg" alt="3docc-prediction-results">
+        <div align="center" style="margin-top:20px;"></div>
+        <img style='height: auto; width:100%; object-fit: contain' src="static/images/RayIoU.jpg"
+          alt="3docc-prediction-results">
+        <div align="center" style="margin-top:20px;"></div>
+        <img style='height: auto; width:60%; object-fit: contain' src="static/images/render_speed.jpg"
+                alt="occupancy-prediction-results">
+
+
+        <div align="center" style="margin-top:40px;">
+        <h3 align="center" class="title is-4">Self-supervised Multi-camera Depth Estimation</h3>
+
+        <div class="content has-text-justified">
+          We conduct depth estimation compared with all the methods in scale-aware metric.
+        </div>
+
+        <img style='height: auto; width:100%; object-fit: contain' src="static/images/depth_table.jpg" alt="occupancy-prediction-results">
+        
+          <h3 align="center" class="title is-4">Image shows</h3>
+
+        <div class="content has-text-justified">
+            The image below shows some images from the nuScenes dataset.
+        </div>
+
+        <img style='height: auto; width:100%; object-fit: contain' src="static/images/nuscenes_supplement.png" alt="depth-estimation-qual-results">
+
+        <div class="content has-text-justified">
+            The image below shows some images from the DDAD dataset.
+        </div>
+
+        <img style='height: auto; width:100%; object-fit: contain' src="static/images/ddad_supplement.png" alt="depth-estimation-qual-results">
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+@article{
+    Temp
+}
+</code></pre>
+  </div>
+</section>
+    
+
+<footer class="footer">
+  <div align="center" class="container">
+    <div class="columns is-centered">
+        <div class="content">
+            This website is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+        </div>
+      </div>
+    </div>
+</footer>
+
+</body>
+</html>
