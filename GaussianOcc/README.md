@@ -1,6 +1,6 @@
-# Website for OccNeRF
+# Website for GaussianOcc
 
-Source code for the [GaussianOcc website](https://fang2896.github.io/GaussianOcc).
+Source code for the [GaussianOcc website](https://ganwanshui.github.io/GaussianOcc/).
 
 If you find GaussianOcc useful for your work please cite:
 
