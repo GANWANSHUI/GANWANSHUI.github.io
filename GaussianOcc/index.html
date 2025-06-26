@@ -46,6 +46,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-2 publication-title">GaussianOcc: Fully Self-supervised and Efficient 3D Occupancy Estimation with Gaussian Splatting</h1>
+          <h1 class="title is-2 publication-title">(ICCV 2025)</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://ganwanshui.github.io/">Wanshui Gan</a><sup>1,2,*</sup>,</span>
@@ -179,10 +180,7 @@
         <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
           <p>
-            <b>The overview of the proposed GaussianOcc.</b> With a sequence of surround images, we employ a U-Net architecture to predict Gaussian attributes in the 2D image grid space for cross-view Gaussian splatting.
-            This approach provides scale information in the joint training with the 6D pose network (Stage 1).
-            For 3D occupancy estimation, we lift the 2D features to a 3D voxel space and propose voxel grid Gaussian splatting for fast rendering (Stage 2).
-            We omit the line to from the 6D pose net to the loss in stage 1 for clarity.
+            <b>The overview of the proposed GaussianOcc.</b> GaussianOcc is a two-stage method. In Stage 1, we train a scale-aware 6D pose network, using a U-Net architecture to predict Gaussian attributes in the 2D image grid space for cross-view Gaussian splatting. This approach provides scale information in the joint training with the 6D pose net. Based on the 6D pose from Stage 1, we perform self-supervised 3D occupancy estimation in Stage 2, where we lift the 2D features to a 3D voxel space and propose voxel grid Gaussian splatting for fast rendering. Note that, for clarity, we omit the line from the 6D pose network to the loss in Stage 1, and the 2D encoder is independent for each stage (not shared).
           </p>
         </div>
       </div>
@@ -190,7 +188,7 @@
   </div>
 
 <div align="center" style="margin-top:20px;" style="margin-bottom:80px;">
-<img style='height: auto; width:65%; object-fit: contain' src="static/images/pipeline.png" alt="overview_image">
+<img style='height: auto; width:65%; object-fit: contain' src="static/images/overview_1.png" alt="overview_image">
 </div>
 
 
@@ -255,12 +253,18 @@
   <div class="container content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
+@article{gan2024comprehensive,
+      title={A Comprehensive Framework for 3D Occupancy Estimation in Autonomous Driving},
+      author={Gan, Wanshui and Mo, Ningkai and Xu, Hongbin and Yokoya, Naoto},
+      journal={IEEE Transactions on Intelligent Vehicles},
+      year={2024},
+      publisher={IEEE}}
+
 @article{gan2024gaussianocc,
 title={GaussianOcc: Fully Self-supervised and Efficient 3D Occupancy Estimation with Gaussian Splatting},
 author={Gan, Wanshui and Liu, Fang and Xu, Hongbin and Mo, Ningkai and Yokoya, Naoto},
 journal={arXiv preprint arXiv:2408.11447},
-year={2024}
-}
+year={2024}}
 </code></pre>
   </div>
 </section>
